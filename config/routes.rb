@@ -1,5 +1,7 @@
 Shorty::Application.routes.draw do
-  resources :urls
+  resources :urls, except: [:delete, :show]
+  get "/u/:short" => "urls#show", as: :short_url
+  get "/delete/short/:secret" => "urls#delete"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

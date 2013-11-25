@@ -1,9 +1,22 @@
 class UrlsController < ApplicationController
-  def show
+  def show 
       @url = Url.find_by_short params[:short]
+      if not @url
+          not_found
+      end
+
+      redirect_to @url.url
   end
 
   def delete
+      @url = Url.find_by_secret params[:secret]
+      if not @url
+          not_found
+      end
+      @url.delete
+      flash[:notice] = "Url #{@url.url} deleted successfully from database"
+
+      redirect_to :urls
   end
 
   def new
@@ -14,6 +27,7 @@ class UrlsController < ApplicationController
       @url = Url.new url_params
       if @url.valid?
           @url.save
+          flash[:notice] = "Url #{@url.url} successfully added to database"
           if not session.include? "urls"
               session["urls"] = []
           end

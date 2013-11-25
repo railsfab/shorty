@@ -8,7 +8,7 @@
                 <dd><%= url.url %></dd>
 
                 <dt>Short Url: </dt>
-                <dd><a href='/short/<%= url.short %>'>http://<%= request.host %>/u/<%= url.short %></a></dd> 
+                <dd><a href='/u/<%= url.short %>'>http://<%= request.host %>/u/<%= url.short %></a></dd> 
 
                 <dt>Delete Url: </dt>
                 <dd><a href="/delete/short/<%= url.secret %>">http://<%= request.host %>/delete/short/<%= url.secret %></a></dd>
