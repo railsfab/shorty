@@ -1,7 +1,10 @@
 class Url < ActiveRecord::Base
     validates :url, presence: true
 
-    validates :short, uniqueness: true
+    validates :short, uniqueness: {
+        message: ": Short string you have entered is already taken,
+         please enter some other or leave it empty to create random one for you"
+    }
     
     before_save :create_short
     before_save :create_secret
