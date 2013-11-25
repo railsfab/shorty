@@ -1,0 +1,10 @@
+
+    <% @urls.each do |url| %>
+        <a class="btn btn-primary btn-lg btn-block url" ><%= url.url %></a>
+    <% end %>
+    <% if @urls.empty? %>
+        <div class="well">
+            You dont have any urls yet. Create one <%= link_to :here, :new_url %>.  
+        </div>
+    <% end %>
+

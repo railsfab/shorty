@@ -14,6 +14,11 @@ class UrlsController < ApplicationController
       @url = Url.new url_params
       if @url.valid?
           @url.save
+          if not session.include? "urls"
+              session["urls"] = []
+          end
+          session["urls"].append  @url.id
+          redirect_to :urls
       else
           render :new
       end
@@ -23,6 +28,10 @@ class UrlsController < ApplicationController
   end
 
   def update
+  end
+
+  def index
+      @urls = Url.where id: session[:urls]
   end
 
   private

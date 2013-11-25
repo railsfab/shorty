@@ -8,11 +8,16 @@
 </head>
 <body>
     <div class="container">
-<div class="header">
-    <ul class="nav nav-pills pull-right">
-   </ul>
-    <h3>Shorty</h3>
-</div>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+       <a class="navbar-brand" href="/">Shorty</a>
+       <ul class='nav navbar-nav'>
+           <li><%= link_to :New, :new_url %></li>
+           <li><%= link_to "My Urls", :urls %></li>
+       </ul>
+    </div>
+</nav>
+
 <div style='margin-top: 45px;'>
 <% if notice %>
 <div class='well well-sm text-success'>
