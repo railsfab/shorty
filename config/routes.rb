@@ -1,4 +1,5 @@
 Shorty::Application.routes.draw do
+  root "urls#index"
   resources :urls, except: [:delete, :show]
   get "/u/:short" => "urls#show", as: :short_url
   get "/delete/short/:secret" => "urls#delete"
