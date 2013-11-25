@@ -1,6 +1,20 @@
 
     <% @urls.each do |url| %>
         <a class="btn btn-primary btn-lg btn-block url" ><%= url.url %></a>
+        <div class='url-info'>
+            <div class='url-info-content'>
+            <dl class="dl-horizontal">
+                <dt>Your url: </dt>
+                <dd><%= url.url %></dd>
+
+                <dt>Short Url: </dt>
+                <dd><a href='/short/<%= url.short %>'>http://<%= request.host %>/u/<%= url.short %></a></dd> 
+
+                <dt>Delete Url: </dt>
+                <dd><a href="/delete/short/<%= url.secret %>">http://<%= request.host %>/delete/short/<%= url.secret %></a></dd>
+            </dl>
+            </div>
+        </div>
     <% end %>
     <% if @urls.empty? %>
         <div class="well">
