@@ -12,6 +12,17 @@
     <br />
     <%= f.text_field :short , class: 'form-control', placeholder: '(Optional) Desired short name' %>
     <br />
+ <script type="text/javascript"
+     src="http://www.google.com/recaptcha/api/challenge?k=6Ld72OoSAAAAAPfmVi0b8pRunaDUBUWcDIWFfn9M">
+  </script>
+  <noscript>
+     <iframe src="http://www.google.com/recaptcha/api/noscript?k=6Ld72OoSAAAAAPfmVi0b8pRunaDUBUWcDIWFfn9M"
+         height="300" width="500" frameborder="0"></iframe><br>
+     <textarea name="recaptcha_challenge_field" rows="3" cols="40">
+     </textarea>
+     <input type="hidden" name="recaptcha_response_field"
+         value="manual_challenge">
+  </noscript>
     <%= f.submit "Create", class: "btn btn-primary"%>
 
 <% end %>
