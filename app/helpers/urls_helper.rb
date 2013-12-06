@@ -5,7 +5,7 @@ module UrlsHelper
         data = {
             challenge: params[:recaptcha_challenge_field],
             response: params[:recaptcha_response_field],
-            privatekey: "6Ld72OoSAAAAAG8Z9qQs4PlqgUcrx2LgJFj_OADZ",
+            privatekey: ENV["SHORTY_RECAPTCHA_SECRET"],
             remoteip: request.remote_ip
         }
         url = "http://www.google.com/recaptcha/api/verify"
